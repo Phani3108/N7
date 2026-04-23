@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Pipeline from '../components/Pipeline.astro';
 ---
 <Base>
   <section class="hero"><div class="container">
@@ -29,6 +30,19 @@ import Base from '../layouts/Base.astro';
         <h3 class="serif">We stay out of the way.</h3>
         <p>Agents work inside the tools your team already opens. No new tabs, no new logins, no rituals.</p>
       </div>
+    </div>
+  </div></section>
+
+  <section class="services-teaser"><div class="container">
+    <div class="sec-label">
+      <h2 class="serif">From idea to launch to scale.<br/>One team.</h2>
+      <div class="meta">Services · Seven phases</div>
+    </div>
+    <p class="teaser-lede">We partner with enterprises end-to-end — ground survey to go-live to operations. Pick up at any phase. Every phase has receipts.</p>
+    <Pipeline compact={false} />
+    <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn ember" href="/idea-to-launch">See the engagement <span class="arrow">→</span></a>
+      <a class="btn ghost" href="mailto:hello@number7.io?subject=Quote%20%E2%80%94%20Full%20engagement">Request a quote</a>
     </div>
   </div></section>
 

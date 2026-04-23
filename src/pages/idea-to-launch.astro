@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import Pipeline from '../components/Pipeline.astro';
+import PhasePanel from '../components/PhasePanel.astro';
+
+const phases = [
+  {
+    n: '01',
+    phase: 'discover' as const,
+    title: 'Discover',
+    punchline: 'Before a line of code.',
+    body: 'We show up where your customers already are — not where your stakeholders think they are. Ground surveys, user interviews, competitor reads, opportunity framing. You walk out with a prioritized list of bets backed by evidence.',
+    bullets: [
+      'Ground surveys & field interviews',
+      'Competitor and analyst reads',
+      'Opportunity framing · RICE-scored bets',
+      'Stakeholder alignment deck',
+    ],
+    proofSlug: 'digitalization-of-schools',
+    proofTitle: 'Digitalization of Schools',
+    proofMetric: '33-slide proposal · 4 nations',
+    proofCap: 'Ministry-ready deck benchmarked against India (Samagra / PM SHRI), Estonia, Uganda, and the UK. Editable exchange rates, PPP adjustment, defensible math.',
+  },
+  {
+    n: '02',
+    phase: 'define' as const,
+    title: 'Define',
+    punchline: 'Small enough to build. Big enough to matter.',
+    body: 'Requirements, user stories, roadmaps, MVP scope, success metrics. Every feature earns its place in the first release or waits for the second. Nothing ships on a "nice to have."',
+    bullets: [
+      'PRDs & user-story maps',
+      'MVP scope & non-goals',
+      'Success metrics with baselines',
+      '90-day roadmap with dependencies',
+    ],
+    proofSlug: 'enterprise-agent-os',
+    proofTitle: 'Enterprise AgentOS',
+    proofMetric: '60+ skills · 5 workflows',
+    proofCap: 'Scoped before a single regiment shipped — five flagship workflows (PRD→Jira, Incident RCA, Campaign Launch, Hiring, Launch Readiness) plus 60+ reusable skills.',
+    reverse: true,
+  },
+  {
+    n: '03',
+    phase: 'design' as const,
+    title: 'Design',
+    punchline: 'Survive prose. Then survive pixels.',
+    body: 'Wireframes, interactive prototypes, UI systems, usability tests with real users. Every screen pulls its weight or it gets cut. Design is the first tool we use to argue about the product.',
+    bullets: [
+      'Wireframes & interactive prototypes',
+      'UI system & design tokens',
+      'Usability testing with real users',
+      'Accessibility baseline (WCAG AA)',
+    ],
+    proofSlug: 'musicluv',
+    proofTitle: 'MusicLuv',
+    proofMetric: '20+ instruments · 9 levels',
+    proofCap: 'Real-mic grading overlays, artist-style lessons, a nine-level arc from Standard to Genius — shipped across 20+ instruments with Indian classical as a first-class citizen.',
+  },
+  {
+    n: '04',
+    phase: 'build' as const,
+    title: 'Build',
+    punchline: 'The code review is never ceremonial.',
+    body: 'Agile sprints, AI/ML integration, test suites that actually prevent regressions. We pair with your engineers, not over them. Every week, something real goes live.',
+    bullets: [
+      'Weekly releases, no exceptions',
+      'AI/ML integration (Anthropic, OpenAI, in-house)',
+      'Unit, integration, security, UAT',
+      'Per-tenant audit trails from day one',
+    ],
+    proofSlug: 'cadbury',
+    proofTitle: 'Cadbury',
+    proofMetric: '7 delegates · 15 pages',
+    proofCap: 'Seven specialized delegates, 40+ typed event types, 15 frontend pages, policy engine with three trust zones — policy simulator and audit trail shipped alongside.',
+    reverse: true,
+  },
+  {
+    n: '05',
+    phase: 'ship' as const,
+    title: 'Ship',
+    punchline: 'Boring infrastructure is a feature.',
+    body: 'Cloud deployment (GCP Vertex AI / AWS / Azure), CI/CD, monitoring, encryption at rest and in transit, tenant isolation, secret hygiene. The interesting stories in prod are about the feature — never the outage.',
+    bullets: [
+      'Multi-region deploy · CI/CD',
+      'AES-256 at rest · TLS 1.3 in transit',
+      'Tenant isolation (RLS + RBAC)',
+      '24/7 observability · alert routing',
+    ],
+    proofSlug: 'transactionwonder',
+    proofTitle: 'TransactionWonder',
+    proofMetric: '110 agents · RLS multi-tenant',
+    proofCap: '1 CEO, 9 orchestrators, 100 workers — AES-256-GCM token persistence, HMAC-verified Stripe webhooks, five-minute windows on every sensitive call.',
+  },
+  {
+    n: '06',
+    phase: 'launch' as const,
+    title: 'Launch',
+    punchline: 'GTM you can audit.',
+    body: 'Pricing, positioning, sales enablement, campaign content, demand gen, SEO, analyst marketing, partnerships. Executed, measured, iterated. No theatre — every dollar traceable to a metric.',
+    bullets: [
+      'Pricing & packaging',
+      'Sales enablement · battlecards',
+      'SEO · content · analyst relations',
+      'Demand gen · attribution · dashboards',
+    ],
+    proofSlug: 'cortex',
+    proofTitle: 'Cortex',
+    proofMetric: '9 tools · 60-second setup',
+    proofCap: 'Launched with day-one support for Claude, Cursor, Copilot, Windsurf, Gemini, Codex, Kiro, Antigravity, and OpenAI — plus 40+ technologies in Stack Intelligence.',
+    reverse: true,
+  },
+  {
+    n: '07',
+    phase: 'scale' as const,
+    title: 'Scale',
+    punchline: 'Operations as a discipline.',
+    body: 'Monitoring, customer success, KPI dashboards, post-launch iteration, market expansion. Your second market should not take as long as your first. We build the playbook so it does not.',
+    bullets: [
+      'Support tiers · SLAs · runbooks',
+      'KPI dashboards · cohort analysis',
+      'Market expansion playbook',
+      'Continuous improvement cadence',
+    ],
+    proofSlug: 'zeta-ima',
+    proofTitle: 'Zeta IMA',
+    proofMetric: 'Agency Brain · Prompt Evolution',
+    proofCap: 'Dual-track learning engine (directional + tactical). Every campaign gets scored, every score feeds the Brain, every prompt version auto-evolves when the data warrants it.',
+  },
+];
+---
+<Base
+  title="Idea → Launch — End-to-end product services | Number7"
+  description="From idea to launch and scale. Number7 partners with enterprises across seven phases — Discover, Define, Design, Build, Ship, Launch, Scale — with proof drawn from our own product work."
+>
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Idea → Launch</div>
+    <h1 class="serif">From idea to launch to scale.<br/>One team. Seven phases.</h1>
+    <p class="lede">We partner with enterprises end-to-end — ground survey to go-live to operations. Eleven products deep in the practice. Every phase has receipts.</p>
+    <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn ember" href="mailto:hello@number7.io?subject=Quote%20%E2%80%94%20Full%20engagement">Request a full engagement quote <span class="arrow">→</span></a>
+      <a class="btn ghost" href="#discover">Start with Discover</a>
+    </div>
+  </div></section>
+
+  <section class="pipeline-hero"><div class="container">
+    <Pipeline />
+  </div></section>
+
+  {phases.map(p => (
+    <PhasePanel
+      n={p.n}
+      phase={p.phase}
+      title={p.title}
+      punchline={p.punchline}
+      body={p.body}
+      bullets={p.bullets}
+      proofSlug={p.proofSlug}
+      proofTitle={p.proofTitle}
+      proofMetric={p.proofMetric}
+      proofCap={p.proofCap}
+      reverse={p.reverse ?? false}
+    />
+  ))}
+
+  <section class="phase-cta"><div class="container">
+    <h2 class="serif">Bring us in at any phase.</h2>
+    <p>We take engagements as narrow as a two-week discovery sprint or as broad as a full lifecycle partnership. Tell us where you are — we will tell you what we would do next.</p>
+    <div class="cta-row" style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn ember" href="mailto:hello@number7.io?subject=Quote%20%E2%80%94%20Full%20engagement">Request a full engagement quote <span class="arrow">→</span></a>
+      <a class="btn ghost" href="/contact">Book a working session</a>
+    </div>
+  </div></section>
+</Base>

@@ -1,0 +1,57 @@
+---
+import PhaseIcon from './PhaseIcon.astro';
+import ProductIcon from './ProductIcon.astro';
+
+interface Props {
+  n: string;
+  phase: 'discover' | 'define' | 'design' | 'build' | 'ship' | 'launch' | 'scale';
+  title: string;
+  punchline: string;
+  body: string;
+  bullets: string[];
+  proofSlug: string;
+  proofTitle: string;
+  proofMetric: string;
+  proofCap: string;
+  reverse?: boolean;
+}
+const { n, phase, title, punchline, body, bullets, proofSlug, proofTitle, proofMetric, proofCap, reverse = false } = Astro.props;
+const mailSubject = encodeURIComponent(`Quote — ${title} phase`);
+---
+<section class={`phase-panel${reverse ? ' reverse' : ''}`} id={phase}>
+  <div class="container">
+    <div class="phase-wrap">
+      <div class="phase-copy">
+        <div class="phase-head">
+          <span class="phase-num">{n}</span>
+          <span class="phase-ico" aria-hidden="true"><PhaseIcon phase={phase} size={20}/></span>
+          <span class="phase-name">{title}</span>
+        </div>
+        <h2 class="serif phase-punch">{punchline}</h2>
+        <p class="phase-body">{body}</p>
+        <ul class="phase-bullets">
+          {bullets.map(b => <li>{b}</li>)}
+        </ul>
+        <div class="phase-ctas">
+          <a class="btn ember" href={`mailto:hello@number7.io?subject=${mailSubject}`}>Request a quote <span class="arrow">→</span></a>
+          <a class="btn ghost" href={`/products/${proofSlug}`}>See the proof</a>
+        </div>
+      </div>
+
+      <aside class="phase-proof">
+        <div class="proof-head">
+          <span class="proof-eyebrow">Proof on file</span>
+          <a class="proof-name" href={`/products/${proofSlug}`}>
+            <span class="proof-icon" aria-hidden="true"><ProductIcon slug={proofSlug} size={22}/></span>
+            {proofTitle}
+          </a>
+        </div>
+        <div class="proof-metric serif">{proofMetric}</div>
+        <div class="proof-cap">{proofCap}</div>
+        <div class="proof-footer">
+          <a class="proof-link" href={`/products/${proofSlug}`}>Open the product page <span class="arrow">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

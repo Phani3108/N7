@@ -1,0 +1,30 @@
+---
+import PhaseIcon from './PhaseIcon.astro';
+
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+
+const phases = [
+  { key: 'discover', label: 'Discover', n: '01' },
+  { key: 'define',   label: 'Define',   n: '02' },
+  { key: 'design',   label: 'Design',   n: '03' },
+  { key: 'build',    label: 'Build',    n: '04' },
+  { key: 'ship',     label: 'Ship',     n: '05' },
+  { key: 'launch',   label: 'Launch',   n: '06' },
+  { key: 'scale',    label: 'Scale',    n: '07' },
+] as const;
+---
+<div class={`pipeline${compact ? ' pipeline-compact' : ''}`}>
+  {phases.map((p, i) => (
+    <>
+      <a class="pipe-node" href={`/idea-to-launch#${p.key}`}>
+        <span class="pipe-num">{p.n}</span>
+        <span class="pipe-ico"><PhaseIcon phase={p.key} size={compact ? 18 : 22}/></span>
+        <span class="pipe-label">{p.label}</span>
+      </a>
+      {i < phases.length - 1 && <span class="pipe-line" aria-hidden="true"></span>}
+    </>
+  ))}
+</div>
