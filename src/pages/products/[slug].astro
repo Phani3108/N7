@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductIcon from '../../components/ProductIcon.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map(p => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const { Content } = await product.render();
+const d = product.data;
+const slug = product.slug;
+const bucketUrl = d.bucket === 'B2B' ? '/products/b2b' : '/products/b2c';
+---
+<Base title={`${d.title} — Number7`} description={d.lede}>
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Products / <a href={bucketUrl}>{d.bucket}</a> / {d.title}</div>
+    <div class="hero-icon" aria-hidden="true"><ProductIcon slug={slug} size={56}/></div>
+    <h1 class="serif">{d.tagline}</h1>
+    <p class="lede">{d.lede}</p>
+    <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap">
+      <a class="btn ember" href="/contact">Book a 30-minute walkthrough <span class="arrow">→</span></a>
+      <a class="btn ghost" href="/contact">Talk to the team</a>
+    </div>
+  </div></section>
+
+  <section class="pdetail"><div class="container">
+    <div class="top">
+      <div>
+        <h2 class="section">What it does</h2>
+        <div class="body"><Content /></div>
+
+        {d.features.length > 0 && (
+          <>
+            <h2 class="section">Capabilities</h2>
+            <div class="features">
+              {d.features.map(f => (
+                <div class="feat">
+                  <h4>{f.title}</h4>
+                  <p>{f.body}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {slug === 'digital-twin' && (
+          <>
+            <h2 class="section">Architecture</h2>
+            <div class="arch-stack">
+              <div class="row"><div><div class="n">Layer 1</div><h4 class="serif">Ingestion</h4></div><div style="color:var(--muted); font-size:13px">Documents, transcripts, notes, knowledge bases</div></div>
+              <div class="row"><div><div class="n">Layer 2</div><h4 class="serif">Embedding & Indexing</h4></div><div style="color:var(--muted); font-size:13px">Semantic search + structured retrieval</div></div>
+              <div class="row"><div><div class="n">Layer 3</div><h4 class="serif">Persona Modeling</h4></div><div style="color:var(--muted); font-size:13px">Behavior, tone, reasoning patterns</div></div>
+              <div class="row"><div><div class="n">Layer 4</div><h4 class="serif">Memory</h4></div><div style="color:var(--muted); font-size:13px">Short-term + long-term contextual memory</div></div>
+              <div class="row"><div><div class="n">Layer 5</div><h4 class="serif">Interaction</h4></div><div style="color:var(--muted); font-size:13px">Chat · API · integrations (Teams, web, apps)</div></div>
+              <div class="row"><div><div class="n">Layer 6</div><h4 class="serif">Governance</h4></div><div style="color:var(--muted); font-size:13px">Permissions · logging · auditability</div></div>
+            </div>
+          </>
+        )}
+
+        {slug === 'tasket' && (
+          <>
+            <h2 class="section">The four principles</h2>
+            <div class="principles">
+              <div class="principle"><h4 class="serif">Less management. More movement.</h4><p>Reduce friction. Don't add process to replace process.</p></div>
+              <div class="principle"><h4 class="serif">Clarity over complexity.</h4><p>A task has one owner, one status, one next step.</p></div>
+              <div class="principle"><h4 class="serif">Execution over visibility theatre.</h4><p>Dashboards are not work. Tasket shows progress, not performance.</p></div>
+              <div class="principle"><h4 class="serif">Speed without chaos.</h4><p>Fast interactions, minimal clicks, predictable flow.</p></div>
+            </div>
+          </>
+        )}
+
+        {d.howBuy && (
+          <>
+            <h2 class="section">How teams buy</h2>
+            <p class="body">{d.howBuy}</p>
+          </>
+        )}
+      </div>
+
+      <aside class="side">
+        <h4>At a glance</h4>
+        <div class="glance">
+          {d.glance.map(g => (
+            <div class="row">
+              <div class="big serif">{g.big}</div>
+              <div class="cap">{g.cap}</div>
+            </div>
+          ))}
+        </div>
+        <div style="margin-top:20px; border-top:1px solid var(--line); padding-top:16px">
+          <a class="btn ember" href="/contact" style="width:100%; justify-content:center">Get a pilot scoped</a>
+        </div>
+      </aside>
+    </div>
+  </div></section>
+</Base>

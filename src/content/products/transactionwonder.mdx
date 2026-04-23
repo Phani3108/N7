@@ -1,0 +1,42 @@
+---
+title: TransactionWonder
+bucket: B2C
+tier: flagship
+category: Finance
+order: 7
+repo: https://github.com/Phani3108/TransactionWonder
+tagline: Books that close themselves. Audits that sleep.
+lede: An AI bookkeeping platform for small businesses — autonomous, multi-tenant, and built for speed.
+blurb: 110 agents, one CEO. Invoices in, reconciled books out. Audit trail every step of the way.
+glance:
+  - big: "110 agents"
+    cap: "1 CEO · 9 orchestrators · 100 workers — hierarchical, skill-driven"
+  - big: "40+ event types"
+    cap: "Typed audit log, tenant-isolated"
+  - big: "3 compliance rules"
+    cap: "Existence · duplicate vendor+amount · approval-limit threshold"
+  - big: "8 skills"
+    cap: "Registered, callable, Zod-validated input and output"
+  - big: "RLS multi-tenant"
+    cap: "Row-level isolation at the database layer plus RBAC"
+  - big: "OAuth + AES-256-GCM"
+    cap: "Encrypted token persistence, 60-second auto-refresh window"
+features:
+  - title: "OCR invoice ingestion"
+    body: "PDFs and images in. Validated, categorized, routed. Numeric checks before it hits the ledger."
+  - title: "Bank reconciliation"
+    body: "Plaid-connected. Automatic match. Up to 50 discrepancies surfaced per run."
+  - title: "Financial reports on demand"
+    body: "P&L, balance sheet, cash flow, aging. Filed, not generated."
+  - title: "Bill pay"
+    body: "Stripe and ACH. Deterministic idempotency keys. Five-minute webhook HMAC window."
+  - title: "QuickBooks / Xero sync"
+    body: "Bidirectional. No human re-keying."
+  - title: "Three-tier memory"
+    body: "Memories · Scratchpad · Database — so agents don't re-learn what they already know."
+howBuy: "Per-tenant pricing tiered by transaction volume. Compliance pack adds audit export and approval-limit policy engine."
+---
+
+SMB finance teams waste hours on invoice entry, bank reconciliation, and compliance reporting across disconnected tools. TransactionWonder replaces the tool pile with a 110-agent organisation that books, reconciles, pays, and reports.
+
+Strict tenant isolation at the database layer. PII redaction at the executor. Circuit breakers and retry wrappers on every external call. A Stripe webhook that actually verifies the signature inside the five-minute window. Boring infrastructure is how the books stay clean.

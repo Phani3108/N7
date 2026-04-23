@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Trust — Number7" description="Security, privacy, governance, reliability. How Number7 holds the responsibility of agents touching revenue, customer data, and source code.">
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Trust</div>
+    <h1 class="serif">Trust is a feature. We ship it in every release.</h1>
+    <p class="lede">Agents touch revenue, customer data, and source code. That's a responsibility. Here's how we hold it.</p>
+  </div></section>
+
+  <section class="trustpage"><div class="container">
+    <div class="pillars">
+      <div class="pillar">
+        <h3 class="serif">Security</h3>
+        <p>SOC 2 Type II controls audited annually. Penetration tests every quarter. Public bug bounty live on hackerone/number7.</p>
+        <ul>
+          <li>Encrypted at rest (AES-256) and in transit (TLS 1.3)</li>
+          <li>Per-tenant KMS keys, optional customer-managed</li>
+          <li>Hardware-backed SSO · SCIM provisioning</li>
+          <li>Least-privilege IAM across the control plane</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <h3 class="serif">Privacy</h3>
+        <p>We don't train on your data. Ever. Model providers see only what the workflow must show them — redacted at the edge.</p>
+        <ul>
+          <li>GDPR, India's DPDP, and CCPA compliant</li>
+          <li>Data residency: US · EU · IN</li>
+          <li>Right-to-erasure, verifiable within 30 days</li>
+          <li>PII redaction on ingress · policy engine on egress</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <h3 class="serif" id="compliance">Governance</h3>
+        <p>Every prompt, every tool call, every output is logged per tenant for 13 months. Your auditor, your export.</p>
+        <ul>
+          <li>Role-based access + step-up approvals</li>
+          <li>Model router with per-tenant policy</li>
+          <li>Audit trail exportable as JSON or CSV</li>
+          <li>Sub-processor list at <a href="/legal/subprocessors">/legal/subprocessors</a></li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <h3 class="serif" id="status">Reliability</h3>
+        <p>Monthly status at status.number7.io. 99.9% SLO on the hosted control plane. On-call in two timezones.</p>
+        <ul>
+          <li>Multi-region active-passive</li>
+          <li>Backup and restore, tested monthly</li>
+          <li>Incident comms within 15 minutes of detect</li>
+          <li>Post-incident RCA published within 5 business days</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:60px; display:flex; gap:12px; flex-wrap:wrap">
+      <a class="btn ember" href="mailto:security@number7.io">Request SOC 2 report (NDA)</a>
+      <a class="btn ghost" href="/legal/disclosure">Report a vulnerability</a>
+    </div>
+  </div></section>
+</Base>

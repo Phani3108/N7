@@ -1,0 +1,73 @@
+---
+import Logo from './Logo.astro';
+import ProductIcon from './ProductIcon.astro';
+const year = new Date().getFullYear();
+const featured = [
+  { slug: 'digitalization-of-schools', label: 'Digitalization of Schools' },
+  { slug: 'enterprise-agent-os', label: 'Enterprise AgentOS' },
+  { slug: 'vexa', label: 'Vexa' },
+  { slug: 'digital-twin', label: 'Digital Twin' },
+];
+---
+<footer class="site"><div class="container">
+  <div class="cols">
+    <div class="brand">
+      <Logo mono={true} />
+      <p>AI agents that earn their desk. Built by Number 7 Cognition LLP — India · UAE · Qatar · Singapore · Zimbabwe · USA · UK.</p>
+    </div>
+    <div>
+      <h5>Products</h5>
+      <ul>
+        {featured.map(p => (
+          <li>
+            <a href={`/products/${p.slug}`}>
+              <span class="foot-icon" aria-hidden="true"><ProductIcon slug={p.slug} size={14}/></span>
+              {p.label}
+            </a>
+          </li>
+        ))}
+        <li><a href="/products"><span class="foot-icon" aria-hidden="true">→</span>All products</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/about#careers">Careers</a></li>
+        <li><a href="/about#press">Press</a></li>
+        <li><a href="/about#newsroom">Newsroom</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="/products">All products</a></li>
+        <li><a href="/#manifesto">Manifesto</a></li>
+        <li><a href="mailto:hello@number7.io">Brand kit</a></li>
+        <li><a href="/legal/subprocessors">Sub-processors</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Trust</h5>
+      <ul>
+        <li><a href="/trust">Security</a></li>
+        <li><a href="/trust#status">Status</a></li>
+        <li><a href="/trust#compliance">Compliance</a></li>
+        <li><a href="/legal/disclosure">Responsible Disclosure</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <div>© {year} Number 7 Cognition LLP. All rights reserved. · <a href="/legal/privacy">Privacy Policy</a> · <a href="mailto:hello@number7.io">hello@number7.io</a></div>
+    <div class="legal-rail">
+      <a href="/legal/terms">Legal</a>
+      <a href="/legal/terms">Terms of Service</a>
+      <a href="/legal/privacy">Privacy</a>
+      <a href="/legal/disclosure">Responsible Disclosure</a>
+      <a href="/trust">Trust</a>
+      <a href="/contact">Contact</a>
+      <a href="/legal/cookies">Cookie Preferences</a>
+      <a href="/legal/your-privacy-choices">Your Privacy Choices</a>
+    </div>
+  </div>
+</div></footer>

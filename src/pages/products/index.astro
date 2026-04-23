@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('products');
+const sorted = all.sort((a, b) => a.data.order - b.data.order);
+const b2bFlagship = sorted.filter(p => p.data.bucket === 'B2B' && p.data.tier === 'flagship');
+const b2cFlagship = sorted.filter(p => p.data.bucket === 'B2C' && p.data.tier === 'flagship');
+const supporting = sorted.filter(p => p.data.tier === 'supporting');
+---
+<Base title="Products — Number7" description="Ten flagship products across B2B and B2C. One belief: AI stops being a keynote the moment it shows up for work.">
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Products</div>
+    <h1 class="serif">Ten flagships. One belief.</h1>
+    <p class="lede">That AI stops being a keynote the moment it shows up for work. Browse by what it does, not what it promises.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="sec-label" style="margin:60px 0 20px">
+      <h2 class="serif">B2B — Work that agents can own.</h2>
+      <div class="meta">Five flagships</div>
+    </div>
+    <div class="product-grid">
+      {b2bFlagship.map(p => (
+        <ProductCard
+          slug={p.slug}
+          title={p.data.title}
+          bucket={`${p.data.bucket} · ${p.data.category}`}
+          blurb={p.data.blurb}
+          tagline={p.data.tagline}
+          dark={p.data.dark}
+        />
+      ))}
+    </div>
+
+    <div class="sec-label" style="margin:60px 0 20px">
+      <h2 class="serif">B2C — AI that lives in your life.</h2>
+      <div class="meta">Five flagships</div>
+    </div>
+    <div class="product-grid">
+      {b2cFlagship.map(p => (
+        <ProductCard
+          slug={p.slug}
+          title={p.data.title}
+          bucket={`${p.data.bucket} · ${p.data.category}`}
+          blurb={p.data.blurb}
+          tagline={p.data.tagline}
+          dark={p.data.dark}
+        />
+      ))}
+    </div>
+
+    <div class="sec-label" style="margin:60px 0 20px">
+      <h2 class="serif">Also in build.</h2>
+      <div class="meta">Supporting products</div>
+    </div>
+    <div class="product-grid">
+      {supporting.map(p => (
+        <ProductCard
+          slug={p.slug}
+          title={p.data.title}
+          bucket={`${p.data.bucket} · ${p.data.category}`}
+          blurb={p.data.blurb}
+          tagline={p.data.tagline}
+        />
+      ))}
+    </div>
+  </div></section>
+</Base>

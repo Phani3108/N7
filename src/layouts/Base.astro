@@ -1,0 +1,37 @@
+---
+import TopNav from '../components/TopNav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+const {
+  title = 'Number7 — AI agents that earn their desk',
+  description = 'Number 7 Cognition LLP builds AI agents that earn their desk — in boardrooms, factory floors, and phone calls. Ten flagship products, shipped weekly.',
+  canonical,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>{title}</title>
+  <meta name="description" content={description}/>
+  {canonical && <link rel="canonical" href={canonical}/>}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta property="og:title" content={title}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="theme-color" content="#F5F1E8"/>
+</head>
+<body>
+  <TopNav />
+  <slot />
+  <Footer />
+</body>
+</html>

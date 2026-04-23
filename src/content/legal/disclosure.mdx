@@ -1,0 +1,48 @@
+---
+title: Responsible Disclosure
+lede: Find a vulnerability? Tell us first. We'll respect the finding, respect you, and fix it.
+lastUpdated: "2026-04-23"
+order: 3
+---
+
+## Our commitment
+
+If you are a security researcher acting in good faith, we will not pursue legal action against you, we will triage within 24 hours, we will fix within an SLA matched to severity, and we will credit you publicly on resolution (unless you prefer anonymity).
+
+## Scope
+
+**In scope:**
+- `*.number7.io` and all sub-domains we operate.
+- Our published mobile applications.
+- Our API endpoints documented at [number7.io/docs](#).
+
+**Out of scope:**
+- Social engineering of Number7 employees, contractors, or customers.
+- Physical intrusion.
+- Denial-of-service, volumetric, or rate-limit exhaustion testing.
+- Issues in customer-owned deployments (report to the customer directly).
+- Reports based solely on missing headers where no exploit path is shown.
+
+## How to report
+
+Email [security@number7.io](mailto:security@number7.io). Use our PGP key (fingerprint and public key available on request).
+
+Please include:
+
+1. A description of the vulnerability and the version or URL where you found it.
+2. Steps to reproduce, including any tools or accounts used.
+3. An assessment of impact if you are comfortable making one.
+4. Your preferred credit name (or "anonymous").
+
+## What happens next
+
+- **Within 24 hours**: we acknowledge receipt.
+- **Within 72 hours**: we confirm triage severity and owner.
+- **Severity-matched SLA**: Critical < 7 days · High < 30 days · Medium < 60 days · Low / informational < 90 days.
+- **On fix**: we notify you, credit you publicly if you wish, and — where appropriate — add a security advisory to the relevant repository.
+
+## Safe harbour
+
+We will not pursue civil or criminal action, or refer researchers to law enforcement, for activities that (a) comply with this policy, (b) avoid violating the privacy of others, and (c) stop once access has been established and proof-of-concept demonstrated.
+
+Questions? [security@number7.io](mailto:security@number7.io).

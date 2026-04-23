@@ -1,0 +1,21 @@
+---
+import ProductIcon from './ProductIcon.astro';
+interface Props {
+  slug: string;
+  title: string;
+  bucket: string;
+  blurb: string;
+  tagline: string;
+  dark?: boolean;
+}
+const { slug, title, bucket, blurb, tagline, dark = false } = Astro.props;
+---
+<a class={`pcard${dark ? ' dark' : ''}`} href={`/products/${slug}`}>
+  <div>
+    <div class="pcard-icon" aria-hidden="true"><ProductIcon slug={slug} size={28}/></div>
+    <div class="bucket">{bucket}</div>
+    <h3 class="serif">{title}</h3>
+    <p>{blurb}</p>
+  </div>
+  <div class="tagline">{tagline}</div>
+</a>

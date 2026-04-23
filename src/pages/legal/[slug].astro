@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('legal');
+  return pages.map(p => ({ params: { slug: p.slug }, props: { page: p } }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+const d = page.data;
+---
+<Base title={`${d.title} — Number7`} description={d.lede}>
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Legal / {d.title}</div>
+    <h1 class="serif">{d.title}</h1>
+    <p class="lede">{d.lede}</p>
+  </div></section>
+
+  <section class="legal"><div class="container">
+    <div class="updated">Last updated · {d.lastUpdated}</div>
+    <Content />
+
+    <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:24px; display:flex; gap:16px; flex-wrap:wrap; font-size:14px">
+      <a href="/legal/terms">Terms of Service</a>
+      <a href="/legal/privacy">Privacy</a>
+      <a href="/legal/disclosure">Responsible Disclosure</a>
+      <a href="/legal/cookies">Cookie Preferences</a>
+      <a href="/legal/your-privacy-choices">Your Privacy Choices</a>
+      <a href="/legal/subprocessors">Sub-processors</a>
+    </div>
+  </div></section>
+</Base>

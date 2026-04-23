@@ -1,0 +1,47 @@
+---
+---
+<div class="cookiebox" id="cookiebox">
+  <div class="row">
+    <div><b>Strictly necessary</b><small>Required. Keeps you logged in and safe.</small></div>
+    <button class="toggle" aria-checked="true" aria-label="Strictly necessary (always on)" disabled></button>
+  </div>
+  <div class="row">
+    <div><b>Functional</b><small>Remembers preferences like region and theme.</small></div>
+    <button class="toggle" aria-checked="true" aria-label="Functional" data-cookie="functional"></button>
+  </div>
+  <div class="row">
+    <div><b>Analytics</b><small>Aggregated usage. Never per-user profiling.</small></div>
+    <button class="toggle" aria-checked="false" aria-label="Analytics" data-cookie="analytics"></button>
+  </div>
+  <div class="row">
+    <div><b>Marketing</b><small>Tells us which campaign brought you here. Off by default.</small></div>
+    <button class="toggle" aria-checked="false" aria-label="Marketing" data-cookie="marketing"></button>
+  </div>
+  <div class="actions">
+    <button class="btn ember" id="cookies-save" type="button">Save preferences</button>
+    <button class="btn ghost" id="cookies-reject" type="button">Reject all optional</button>
+  </div>
+</div>
+
+<script is:inline>
+(function(){
+  const box = document.getElementById('cookiebox');
+  if(!box) return;
+  const toggles = box.querySelectorAll('.toggle[data-cookie]');
+  toggles.forEach(t => {
+    t.addEventListener('click', () => {
+      const cur = t.getAttribute('aria-checked') === 'true';
+      t.setAttribute('aria-checked', String(!cur));
+    });
+  });
+  document.getElementById('cookies-save').addEventListener('click', () => {
+    const prefs = {};
+    toggles.forEach(t => { prefs[t.dataset.cookie] = t.getAttribute('aria-checked') === 'true'; });
+    try { localStorage.setItem('n7_cookie_prefs', JSON.stringify(prefs)); } catch(e){}
+    alert('Preferences saved.');
+  });
+  document.getElementById('cookies-reject').addEventListener('click', () => {
+    toggles.forEach(t => t.setAttribute('aria-checked', 'false'));
+  });
+})();
+</script>

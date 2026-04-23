@@ -1,0 +1,241 @@
+:root{
+  --ink:#0D0F1A;
+  --ink-2:#1B1E2C;
+  --paper:#F5F1E8;
+  --paper-2:#EFEADF;
+  --line:#E4DFCF;
+  --muted:#6B6B62;
+  --lime:#C9F24A;
+  --ember:#E85D3C;
+}
+*{box-sizing:border-box}
+html,body{margin:0; padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family: ui-sans-serif,-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",system-ui,sans-serif;
+  font-size:16px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.serif{font-family: ui-serif,"Iowan Old Style","Instrument Serif","Fraunces",Georgia,serif; font-weight:400; letter-spacing:-0.01em}
+a{color:inherit; text-decoration:none}
+a:hover{text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px}
+img{max-width:100%; display:block}
+
+.container{max-width:1180px; margin:0 auto; padding:0 28px}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:999px; font-size:14px; font-weight:500; border:1px solid var(--ink); background:var(--ink); color:var(--paper); transition: transform .15s ease}
+.btn:hover{transform: translateY(-1px); text-decoration:none}
+.btn.ghost{background:transparent; color:var(--ink)}
+.btn.ember{background:var(--ember); border-color:var(--ember); color:#fff}
+.btn.lime{background:var(--lime); border-color:var(--lime); color:var(--ink)}
+.btn .arrow{transition: transform .15s ease}
+.btn:hover .arrow{transform: translateX(2px)}
+
+/* Nav */
+nav.topnav{padding:22px 0; border-bottom:1px solid var(--line); background:var(--paper); position:sticky; top:0; z-index:30}
+nav.topnav .row{display:flex; align-items:center; justify-content:space-between; gap:24px}
+nav.topnav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:14px}
+nav.topnav ul li a{color:var(--ink); opacity:.82}
+nav.topnav ul li a:hover{opacity:1}
+.logo{display:inline-flex; align-items:center; gap:10px; font-weight:600; letter-spacing:-0.01em; color:inherit}
+.logo .name{font-size:18px}
+
+/* Hero */
+.hero{padding:88px 0 64px; position:relative}
+.hero .eyebrow{display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); padding:6px 12px; border:1px solid var(--line); border-radius:999px; margin-bottom:28px}
+.hero h1{font-size: clamp(44px, 7vw, 88px); line-height:.96; margin:0 0 24px; letter-spacing:-0.02em}
+.hero h1 em{font-style:normal; color:var(--ember)}
+.hero .sub{font-size:20px; color:var(--muted); max-width:640px; margin:0 0 36px}
+.hero .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+
+/* Strip */
+.strip{padding:60px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--paper-2)}
+.strip .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:48px}
+.strip .n{font-size:12px; letter-spacing:.16em; color:var(--ember); text-transform:uppercase; margin-bottom:8px}
+.strip h3{font-size:22px; margin:0 0 8px; letter-spacing:-0.01em}
+.strip p{margin:0; color:var(--muted); font-size:15px}
+
+/* Groups */
+.groups{padding:96px 0 60px}
+.sec-label{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:40px; flex-wrap:wrap; gap:12px}
+.sec-label h2{font-size:36px; margin:0; letter-spacing:-0.01em}
+.sec-label .meta{font-size:13px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase}
+.group-grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:20px}
+.group{background:var(--ink); color:var(--paper); border-radius:20px; padding:32px; min-height:420px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden}
+.group.b2c{background:var(--paper-2); color:var(--ink); border:1px solid var(--line)}
+.group .tag{font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.72; margin-bottom:16px}
+.group h3{font-size:36px; margin:0 0 10px; letter-spacing:-0.015em; line-height:1.05}
+.group .sub{font-size:15px; opacity:.8; margin:0 0 24px}
+.group ul{list-style:none; padding:0; margin:0 0 24px; font-size:14px}
+.group ul li{display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid rgba(255,255,255,.1)}
+.group.b2c ul li{border-top-color:var(--line)}
+.group ul li a{opacity:.85; display:flex; justify-content:space-between; width:100%; color:inherit}
+.group ul li a:hover{opacity:1; text-decoration:none}
+.group .more{font-size:13px; display:inline-flex; align-items:center; gap:6px; opacity:.9}
+
+/* Spotlight */
+.spotlight{padding:80px 0; border-top:1px solid var(--line)}
+.spotlight .wrap{display:grid; grid-template-columns: 1.2fr 1fr; gap:60px; align-items:center}
+.spotlight .eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:20px}
+.spotlight h2{font-size:48px; line-height:1.02; margin:0 0 20px; letter-spacing:-0.02em}
+.spotlight .stat{border:1px solid var(--line); border-radius:16px; padding:28px; background:var(--paper-2)}
+.spotlight .stat .big{font-size:72px; line-height:1; letter-spacing:-0.03em; color:var(--ember)}
+.spotlight .stat .cap{font-size:14px; color:var(--muted); margin-top:8px}
+
+/* Manifesto */
+.manifesto{padding:120px 0; background:var(--ink); color:var(--paper)}
+.manifesto blockquote{max-width:860px; font-size:38px; line-height:1.2; margin:0; letter-spacing:-0.015em}
+.manifesto blockquote em{color:var(--lime); font-style:normal}
+.manifesto .author{margin-top:32px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.7}
+
+/* Trust strip */
+.trust{padding:80px 0; border-top:1px solid var(--line)}
+.trust .grid{display:grid; grid-template-columns: repeat(4,1fr); gap:28px}
+.trust .item{border-top:1px solid var(--ink); padding-top:16px}
+.trust .item h4{font-size:15px; margin:0 0 6px}
+.trust .item p{font-size:13px; color:var(--muted); margin:0}
+
+/* Careers */
+.careers{padding:80px 0; border-top:1px solid var(--line); background:var(--paper-2)}
+.careers .wrap{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:center}
+.careers h2{font-size:48px; margin:0; letter-spacing:-0.02em; line-height:1.02}
+.careers p{color:var(--muted); max-width:420px}
+
+/* Footer */
+footer.site{background:var(--ink); color:var(--paper); padding:80px 0 40px}
+footer.site .cols{display:grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap:40px; margin-bottom:60px}
+footer.site .brand p{color:#a9a9a0; font-size:13px; max-width:300px}
+footer.site h5{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--lime); margin:0 0 16px}
+footer.site ul{list-style:none; padding:0; margin:0; font-size:14px; display:grid; gap:10px}
+footer.site ul li a{color:#cfcdc3}
+footer.site ul li a:hover{color:var(--paper)}
+footer.site .bottom{border-top:1px solid #23263a; padding-top:28px; display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; font-size:12px; color:#8c8c83}
+footer.site .legal-rail{display:flex; flex-wrap:wrap; gap:20px}
+footer.site .legal-rail a{color:#a9a9a0}
+
+/* Subhero */
+.subhero{padding:60px 0 32px; border-bottom:1px solid var(--line)}
+.subhero .crumbs{font-size:12px; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; margin-bottom:20px}
+.subhero h1{font-size:clamp(40px, 6vw, 64px); margin:0 0 14px; letter-spacing:-0.02em; line-height:1.02}
+.subhero .lede{font-size:19px; color:var(--muted); max-width:720px; margin:0}
+
+/* Product grid */
+.product-grid{display:grid; grid-template-columns: repeat(3,1fr); gap:18px; padding:40px 0 80px}
+.pcard{background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; min-height:220px; display:flex; flex-direction:column; justify-content:space-between; transition: transform .2s ease, box-shadow .2s ease; color:var(--ink)}
+.pcard:hover{transform:translateY(-2px); box-shadow: 0 12px 30px rgba(13,15,26,.06); text-decoration:none}
+.pcard .bucket{font-size:11px; letter-spacing:.14em; color:var(--ember); text-transform:uppercase}
+.pcard h3{font-size:22px; margin:8px 0 8px; letter-spacing:-0.01em}
+.pcard p{font-size:14px; color:var(--muted); margin:0 0 16px}
+.pcard .tagline{font-size:13px; color:var(--ink); font-weight:500}
+.pcard.dark{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.pcard.dark p{color:#b8b7ae}
+.pcard.dark .bucket{color:var(--lime)}
+.pcard.dark .tagline{color:var(--lime)}
+.pcard-icon{color:var(--ink); margin-bottom:14px; display:inline-flex}
+.pcard.dark .pcard-icon{color:var(--lime)}
+
+/* Product icon in subhero */
+.subhero .hero-icon{color:var(--ember); margin-bottom:20px; display:inline-flex}
+
+/* Footer product icon */
+footer.site ul li a{display:inline-flex; align-items:center; gap:8px}
+footer.site .foot-icon{display:inline-flex; width:16px; height:16px; color:var(--lime); opacity:.85; flex-shrink:0}
+
+/* Top nav: logo alignment */
+nav.topnav .logo{color:var(--ink)}
+
+/* Universal icon tweaks */
+.product-icon{display:block}
+
+/* Product detail */
+.pdetail{padding:56px 0 100px}
+.pdetail .top{display:grid; grid-template-columns: 1.5fr 1fr; gap:60px; align-items:start}
+.pdetail h2.section{font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--ember); margin:48px 0 16px}
+.pdetail p.body{font-size:17px; max-width:680px}
+.pdetail .features{display:grid; grid-template-columns: repeat(2,1fr); gap:20px; margin-top:8px}
+.pdetail .feat{border-top:1px solid var(--ink); padding-top:14px}
+.pdetail .feat h4{margin:0 0 6px; font-size:16px}
+.pdetail .feat p{margin:0; color:var(--muted); font-size:14px}
+.pdetail .side{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:24px; font-size:14px; position:sticky; top:120px}
+.pdetail .side h4{margin:0 0 10px; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.pdetail .glance{display:grid; gap:14px}
+.pdetail .glance .row{padding-bottom:12px; border-bottom:1px solid var(--line)}
+.pdetail .glance .row:last-child{border-bottom:0}
+.pdetail .glance .big{font-size:22px; letter-spacing:-0.01em}
+.pdetail .glance .cap{color:var(--muted); font-size:13px}
+
+/* Architecture stack (Digital Twin) */
+.arch-stack{display:grid; gap:10px; margin:20px 0 40px}
+.arch-stack .row{background:var(--paper-2); border:1px solid var(--line); border-radius:12px; padding:16px 20px; display:flex; justify-content:space-between; align-items:center}
+.arch-stack .row .n{color:var(--ember); font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+.arch-stack .row h4{margin:4px 0 0; font-size:18px}
+
+/* Principles grid (Tasket) */
+.principles{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin:20px 0 40px}
+.principle{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:24px}
+.principle h4{margin:0 0 6px; font-size:20px; letter-spacing:-0.01em}
+.principle p{margin:0; color:var(--muted); font-size:14px}
+
+/* About */
+.about{padding:56px 0 100px}
+.about .thesis{font-size:28px; line-height:1.35; max-width:780px; letter-spacing:-0.005em}
+.about .team{display:grid; grid-template-columns: repeat(4,1fr); gap:24px; margin-top:48px}
+.about .team.team-two{grid-template-columns: repeat(2,1fr); max-width:720px}
+.about .person .name a{color:inherit}
+.about .person .name a:hover{text-decoration:underline; text-underline-offset:4px}
+.about .person{border-top:1px solid var(--line); padding-top:16px}
+.about .person .name{font-size:16px; margin:0 0 4px}
+.about .person .role{font-size:13px; color:var(--muted)}
+.about .how{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:20px}
+.about .how h4{margin:0 0 6px}
+.about .how p{margin:0; color:var(--muted); font-size:14px}
+
+/* Trust */
+.trustpage{padding:56px 0 100px}
+.trustpage .pillars{display:grid; grid-template-columns: repeat(2,1fr); gap:20px; margin-top:40px}
+.trustpage .pillar{background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px}
+.trustpage .pillar h3{margin:0 0 10px; font-size:20px}
+.trustpage .pillar p{color:var(--muted); margin:0 0 12px; font-size:14px}
+.trustpage .pillar ul{padding-left:18px; color:var(--muted); font-size:13px; margin:0}
+
+/* Contact */
+.contact{padding:56px 0 100px}
+.contact .wrap{display:grid; grid-template-columns: 1.2fr 1fr; gap:60px}
+.contact .field{display:flex; justify-content:space-between; padding:18px 0; border-top:1px solid var(--line); font-size:16px}
+.contact .field b{color:var(--muted); font-weight:500}
+.contact .box{background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px}
+
+/* Legal */
+.legal{padding:56px 0 100px}
+.legal h2{font-size:22px; margin:36px 0 10px}
+.legal h3{font-size:18px; margin:24px 0 8px}
+.legal p{max-width:760px; color:#2b2e3d; font-size:15px}
+.legal ul{max-width:760px; color:#2b2e3d; font-size:15px; padding-left:20px}
+.legal li{margin-bottom:6px}
+.legal .updated{font-size:13px; color:var(--muted); letter-spacing:.04em; text-transform:uppercase; margin-bottom:28px}
+
+/* Cookie toggles */
+.cookiebox{background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; max-width:720px; margin-top:16px}
+.cookiebox .row{display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-top:1px solid var(--line); gap:24px}
+.cookiebox .row:first-of-type{border-top:0}
+.cookiebox .row > div:first-child{flex:1}
+.cookiebox .row b{font-weight:500}
+.cookiebox .row small{color:var(--muted); font-size:13px; display:block}
+.cookiebox .toggle{width:44px; height:24px; background:var(--line); border-radius:999px; position:relative; cursor:pointer; border:none; padding:0; flex-shrink:0}
+.cookiebox .toggle[aria-checked="true"]{background:var(--ember)}
+.cookiebox .toggle::after{content:""; position:absolute; width:18px; height:18px; background:#fff; border-radius:50%; top:3px; left:3px; transition:left .2s}
+.cookiebox .toggle[aria-checked="true"]::after{left:23px}
+.cookiebox .toggle[disabled]{opacity:.55; cursor:not-allowed}
+.cookiebox .actions{margin-top:20px; display:flex; gap:10px; flex-wrap:wrap}
+
+@media (max-width: 900px){
+  .strip .grid, .group-grid, .product-grid, .about .team, .about .how, .trustpage .pillars, .principles, .pdetail .features{grid-template-columns:1fr}
+  .spotlight .wrap, .careers .wrap, .pdetail .top, .contact .wrap{grid-template-columns:1fr}
+  footer.site .cols{grid-template-columns: 1fr 1fr}
+  nav.topnav ul{display:none}
+  .pdetail .side{position:static; margin-top:24px}
+}

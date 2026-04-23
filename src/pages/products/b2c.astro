@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('products');
+const products = all
+  .filter(p => p.data.bucket === 'B2C')
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="B2C — AI that lives in your life · Number7" description="Five flagships plus supporting products. Vexa, TransactionWonder, Shadow, Cadbury, Tasket.">
+  <section class="subhero"><div class="container">
+    <div class="crumbs">Home / Products / B2C</div>
+    <h1 class="serif">AI that lives in your life.</h1>
+    <p class="lede">We built the assistant your phone always promised. Five flagships that quietly handle the phone, the calendar, the books, the calls, and the list.</p>
+  </div></section>
+
+  <section><div class="container">
+    <div class="product-grid">
+      {products.map(p => (
+        <ProductCard
+          slug={p.slug}
+          title={p.data.title}
+          bucket={`${p.data.bucket} · ${p.data.category}`}
+          blurb={p.data.blurb}
+          tagline={p.data.tagline}
+          dark={p.data.dark}
+        />
+      ))}
+    </div>
+  </div></section>
+</Base>
