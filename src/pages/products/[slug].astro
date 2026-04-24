@@ -20,26 +20,36 @@ const bucketUrl = d.bucket === 'B2B' ? '/products/b2b' : '/products/b2c';
     <div class="hero-icon" aria-hidden="true"><ProductIcon slug={slug} size={56}/></div>
     <h1 class="serif">{d.tagline}</h1>
     <p class="lede">{d.lede}</p>
-    <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap">
+    <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap; align-items:center">
       <a class="btn ember" href="/contact">Book a 30-minute walkthrough <span class="arrow">→</span></a>
-      {d.screenshot
-        ? <a class="btn ghost" href={d.screenshot.liveUrl} target="_blank" rel="noopener">Open the live app <span class="arrow">↗</span></a>
-        : <a class="btn ghost" href="/contact">Talk to the team</a>
-      }
+      {d.screenshot && slug !== 'cadbury' && (
+        <a class="btn ghost" href={d.screenshot.liveUrl} target="_blank" rel="noopener">Try the live site <span class="arrow">↗</span></a>
+      )}
+      {d.screenshot && slug === 'cadbury' && (
+        <span class="wip-badge" aria-label="Work in progress">
+          <span class="wip-dot" aria-hidden="true"></span>
+          Work in progress — live demo coming soon
+        </span>
+      )}
+      {!d.screenshot && (
+        <a class="btn ghost" href="/contact">Talk to the team</a>
+      )}
     </div>
   </div></section>
 
   {d.screenshot && (
     <section class="hero-shot"><div class="container">
       <figure class="hero-shot-frame">
-        <img
-          src={d.screenshot.src}
-          alt={d.screenshot.alt}
-          width="1440"
-          height="900"
-          loading="eager"
-          decoding="async"
-        />
+        <a href={d.screenshot.liveUrl} target="_blank" rel="noopener" aria-label={`${d.title} — open the live site in a new tab`}>
+          <img
+            src={d.screenshot.src}
+            alt={d.screenshot.alt}
+            width="1440"
+            height="900"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
         <figcaption>
           <a href={d.screenshot.liveUrl} target="_blank" rel="noopener">{d.screenshot.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} <span class="arrow">↗</span></a>
         </figcaption>
