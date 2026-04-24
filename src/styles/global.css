@@ -261,7 +261,7 @@ nav.topnav .logo{color:var(--ink)}
 .arch-stack .row .n{color:var(--ember); font-size:12px; letter-spacing:.14em; text-transform:uppercase}
 .arch-stack .row h4{margin:4px 0 0; font-size:18px}
 
-/* Principles grid (Tasket) */
+/* Principles grid (QuestNet) */
 .principles{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin:20px 0 40px}
 .principle{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:24px}
 .principle h4{margin:0 0 6px; font-size:20px; letter-spacing:-0.01em}
