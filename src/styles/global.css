@@ -152,6 +152,29 @@ nav.topnav .logo{color:var(--ink)}
 .product-icon{display:block}
 .phase-icon{display:block}
 
+/* Product detail hero screenshot */
+.hero-shot{padding:40px 0 0}
+.hero-shot-frame{margin:0; border-radius:20px; overflow:hidden; background:var(--ink); border:1px solid var(--line); box-shadow:0 20px 50px rgba(13,15,26,.08); position:relative}
+.hero-shot-frame img{display:block; width:100%; height:auto; aspect-ratio:1440/900; object-fit:cover}
+.hero-shot-frame figcaption{padding:12px 18px; font-size:12px; letter-spacing:.08em; color:var(--muted); text-transform:lowercase; background:var(--paper-2); border-top:1px solid var(--line)}
+.hero-shot-frame figcaption a{color:var(--ink)}
+.hero-shot-frame figcaption a:hover{color:var(--ember)}
+
+/* Spotlight on home */
+.spotlight .wrap .spotlight-shot{margin:0; border-radius:20px; overflow:hidden; background:var(--ink); border:1px solid var(--line); box-shadow:0 16px 40px rgba(13,15,26,.1)}
+.spotlight .wrap .spotlight-shot img{display:block; width:100%; height:auto; aspect-ratio:1440/900}
+.spotlight .wrap .spotlight-shot figcaption{display:flex; justify-content:space-between; padding:16px 22px; background:var(--paper-2); border-top:1px solid var(--line); font-size:14px; color:var(--muted); gap:16px; flex-wrap:wrap}
+.spotlight .wrap .spotlight-shot figcaption b{color:var(--ember); font-weight:600}
+
+/* Phase proof panel — screenshot variant */
+.phase-proof.has-shot{padding:20px; min-height:auto}
+.phase-proof .proof-shot{margin:0 0 18px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,.08); background:#0a0b13; position:relative}
+.phase-proof .proof-shot img{display:block; width:100%; height:auto; aspect-ratio:1440/900; object-fit:cover}
+.phase-proof .proof-cap.with-shot{display:flex; flex-direction:column; gap:6px; font-size:13px}
+.phase-proof .proof-cap.with-shot .proof-metric-small{color:var(--lime); font-size:15px; font-weight:500; letter-spacing:-0.005em; font-family: ui-serif,"Iowan Old Style","Instrument Serif","Fraunces",Georgia,serif}
+.phase-proof .proof-footer{display:flex; flex-wrap:wrap; gap:16px}
+.phase-proof.has-shot .proof-footer{gap:14px}
+
 /* Home services teaser */
 .services-teaser{padding:96px 0 32px; border-top:1px solid var(--line)}
 .services-teaser .teaser-lede{font-size:17px; color:var(--muted); max-width:720px; margin:0 0 36px}

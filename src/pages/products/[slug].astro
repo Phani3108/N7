@@ -22,9 +22,30 @@ const bucketUrl = d.bucket === 'B2B' ? '/products/b2b' : '/products/b2c';
     <p class="lede">{d.lede}</p>
     <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap">
       <a class="btn ember" href="/contact">Book a 30-minute walkthrough <span class="arrow">→</span></a>
-      <a class="btn ghost" href="/contact">Talk to the team</a>
+      {d.screenshot
+        ? <a class="btn ghost" href={d.screenshot.liveUrl} target="_blank" rel="noopener">Open the live app <span class="arrow">↗</span></a>
+        : <a class="btn ghost" href="/contact">Talk to the team</a>
+      }
     </div>
   </div></section>
+
+  {d.screenshot && (
+    <section class="hero-shot"><div class="container">
+      <figure class="hero-shot-frame">
+        <img
+          src={d.screenshot.src}
+          alt={d.screenshot.alt}
+          width="1440"
+          height="900"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption>
+          <a href={d.screenshot.liveUrl} target="_blank" rel="noopener">{d.screenshot.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} <span class="arrow">↗</span></a>
+        </figcaption>
+      </figure>
+    </div></section>
+  )}
 
   <section class="pdetail"><div class="container">
     <div class="top">

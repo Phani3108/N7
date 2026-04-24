@@ -13,9 +13,11 @@ interface Props {
   proofTitle: string;
   proofMetric: string;
   proofCap: string;
+  proofScreenshot?: string;
+  proofLiveUrl?: string;
   reverse?: boolean;
 }
-const { n, phase, title, punchline, body, bullets, proofSlug, proofTitle, proofMetric, proofCap, reverse = false } = Astro.props;
+const { n, phase, title, punchline, body, bullets, proofSlug, proofTitle, proofMetric, proofCap, proofScreenshot, proofLiveUrl, reverse = false } = Astro.props;
 const mailSubject = encodeURIComponent(`Quote — ${title} phase`);
 ---
 <section class={`phase-panel${reverse ? ' reverse' : ''}`} id={phase}>
@@ -38,7 +40,7 @@ const mailSubject = encodeURIComponent(`Quote — ${title} phase`);
         </div>
       </div>
 
-      <aside class="phase-proof">
+      <aside class={`phase-proof${proofScreenshot ? ' has-shot' : ''}`}>
         <div class="proof-head">
           <span class="proof-eyebrow">Proof on file</span>
           <a class="proof-name" href={`/products/${proofSlug}`}>
@@ -46,9 +48,24 @@ const mailSubject = encodeURIComponent(`Quote — ${title} phase`);
             {proofTitle}
           </a>
         </div>
-        <div class="proof-metric serif">{proofMetric}</div>
-        <div class="proof-cap">{proofCap}</div>
+
+        {proofScreenshot ? (
+          <figure class="proof-shot">
+            <img src={proofScreenshot} alt={`${proofTitle} — live product screenshot`} width="1440" height="900" loading="lazy" decoding="async"/>
+          </figure>
+        ) : (
+          <div class="proof-metric serif">{proofMetric}</div>
+        )}
+
+        <div class={`proof-cap${proofScreenshot ? ' with-shot' : ''}`}>
+          {proofScreenshot && <span class="proof-metric-small">{proofMetric}</span>}
+          {proofCap}
+        </div>
+
         <div class="proof-footer">
+          {proofLiveUrl && (
+            <a class="proof-link" href={proofLiveUrl} target="_blank" rel="noopener">Open the live app <span class="arrow">↗</span></a>
+          )}
           <a class="proof-link" href={`/products/${proofSlug}`}>Open the product page <span class="arrow">→</span></a>
         </div>
       </aside>

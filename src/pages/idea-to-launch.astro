@@ -36,7 +36,9 @@ const phases = [
     proofSlug: 'enterprise-agent-os',
     proofTitle: 'Enterprise AgentOS',
     proofMetric: '60+ skills · 5 workflows',
-    proofCap: 'Scoped before a single regiment shipped — five flagship workflows (PRD→Jira, Incident RCA, Campaign Launch, Hiring, Launch Readiness) plus 60+ reusable skills.',
+    proofCap: 'Scoped before a single regiment shipped — five flagship workflows plus 60+ reusable skills.',
+    proofScreenshot: '/screenshots/enterprise-agent-os.png',
+    proofLiveUrl: 'https://enterprise-agent-os-web.vercel.app/home',
     reverse: true,
   },
   {
@@ -71,7 +73,9 @@ const phases = [
     proofSlug: 'cadbury',
     proofTitle: 'Cadbury',
     proofMetric: '7 delegates · 15 pages',
-    proofCap: 'Seven specialized delegates, 40+ typed event types, 15 frontend pages, policy engine with three trust zones — policy simulator and audit trail shipped alongside.',
+    proofCap: 'Seven specialized delegates, 40+ typed event types, policy engine with three trust zones — shipped alongside the audit trail.',
+    proofScreenshot: '/screenshots/cadbury.png',
+    proofLiveUrl: 'https://cadbury1.vercel.app/',
     reverse: true,
   },
   {
@@ -106,7 +110,9 @@ const phases = [
     proofSlug: 'cortex',
     proofTitle: 'Cortex',
     proofMetric: '9 tools · 60-second setup',
-    proofCap: 'Launched with day-one support for Claude, Cursor, Copilot, Windsurf, Gemini, Codex, Kiro, Antigravity, and OpenAI — plus 40+ technologies in Stack Intelligence.',
+    proofCap: 'Launched with day-one support for Claude, Cursor, Copilot, Windsurf, Gemini, Codex, Kiro, Antigravity, and OpenAI.',
+    proofScreenshot: '/screenshots/cortex.png',
+    proofLiveUrl: 'https://cortex1.vercel.app/',
     reverse: true,
   },
   {
@@ -124,7 +130,9 @@ const phases = [
     proofSlug: 'zeta-ima',
     proofTitle: 'Zeta IMA',
     proofMetric: 'Agency Brain · Prompt Evolution',
-    proofCap: 'Dual-track learning engine (directional + tactical). Every campaign gets scored, every score feeds the Brain, every prompt version auto-evolves when the data warrants it.',
+    proofCap: 'Dual-track learning engine — every campaign scored, every score feeds the Brain, every prompt auto-evolves when the data warrants it.',
+    proofScreenshot: '/screenshots/zeta-ima.png',
+    proofLiveUrl: 'https://zima1.vercel.app/',
   },
 ];
 ---
@@ -158,7 +166,9 @@ const phases = [
       proofTitle={p.proofTitle}
       proofMetric={p.proofMetric}
       proofCap={p.proofCap}
-      reverse={p.reverse ?? false}
+      proofScreenshot={(p as any).proofScreenshot}
+      proofLiveUrl={(p as any).proofLiveUrl}
+      reverse={(p as any).reverse ?? false}
     />
   ))}
 

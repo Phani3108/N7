@@ -23,6 +23,11 @@ const products = defineCollection({
     repo: z.string().optional(),
     dark: z.boolean().default(false),
     preLaunch: z.boolean().default(false),
+    screenshot: z.object({
+      src: z.string(),
+      alt: z.string(),
+      liveUrl: z.string().url(),
+    }).optional(),
   }),
 });
 

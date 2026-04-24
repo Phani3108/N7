@@ -92,15 +92,25 @@ import Pipeline from '../components/Pipeline.astro';
         <div class="eyebrow">This week's agent at work</div>
         <h2 class="serif">Enterprise AgentOS runs 53 autonomous agents across five regiments — while your team runs the meeting.</h2>
         <p style="color:var(--muted); max-width:520px">Six persona workspaces. Sixty skills. One-fifty API routes. The operating system for teams that want agents on the org chart.</p>
-        <a class="btn ghost" href="/products/enterprise-agent-os" style="margin-top:16px">See the workflow canvas <span class="arrow">→</span></a>
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn ghost" href="/products/enterprise-agent-os">See the workflow canvas <span class="arrow">→</span></a>
+          <a class="btn ghost" href="https://enterprise-agent-os-web.vercel.app/home" target="_blank" rel="noopener">Open the live app <span class="arrow">↗</span></a>
+        </div>
       </div>
-      <div class="stat">
-        <div class="big">53</div>
-        <div class="cap">Autonomous agents, 5 regiments</div>
-        <div style="border-top:1px solid var(--line); margin:20px 0"></div>
-        <div class="big" style="color:var(--ink)">150+</div>
-        <div class="cap">API routes, fully implemented</div>
-      </div>
+      <figure class="spotlight-shot">
+        <img
+          src="/screenshots/enterprise-agent-os.png"
+          alt="Enterprise AgentOS dashboard with onboarding modal — live product"
+          width="1440"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          <span><b>53</b> agents · 5 regiments</span>
+          <span><b>150+</b> API routes</span>
+        </figcaption>
+      </figure>
     </div>
   </div></section>
 
